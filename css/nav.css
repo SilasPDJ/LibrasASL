@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
+
+.navbar {
+    background-color: rgba(232, 232, 235, 0.8);
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  .register{
+    margin-right: 30px;
+    margin-top: 3px;
+  }
+
+  button.btn.btn-outline-secondary.dois{
+    background-color: #565fda; /* cor de fundo */
+    border-color: #565fda; /* cor da borda */
+    color: #ffffff; /* cor do texto */
+    margin-right: 9px; /* Epaço entre os botões */
+  }
+
+  button.btn.btn-outline-secondary.dois:hover {
+    background-color: #3d48db; /* cor de fundo quando o cursor está sobre o botão */
+    color: #ffffff; /* cor do texto quando o cursor está sobre o botão */
+  }
+
+
+  button.btn.btn-outline-secondary.um {
+    background-color: rgba(0, 0, 0, 0); /* cor de fundo */
+    border-color: #444edb00; /* cor da borda */
+    color: #0f0f0fd6; /* cor do texto */
+  }
+
+  button.btn.btn-outline-secondary.um:hover {
+    color: #0f0f0fd6; /* cor do texto */
+    background-color: #444edb00; /* cor de fundo quando o cursor está sobre o botão */
+    border-color: #565fda;
+    border-width: 3px;
+  }
+
+  button.btn.btn-outline-secondary.um:active {
+    outline: none;
+    box-shadow: none;
+  }
+
+  button.btn.btn-outline-secondary.dois:active {
+    outline: none;
+    box-shadow: none;
+    background-color: #3d48db;
+  }
+
+  button.btn.btn-outline-secondary.um:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  button.btn.btn-outline-secondary.dois:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .nav-logo{
+    margin-top: 3px;
+    margin-left: 30px;
+  }
+
+  a.navbar-brand.navtitle {
+    font-family: 'Darumadrop One', cursive;
+    font-size: 30px;
+    color: #272525;
+    border-color: #00000000; /* cor da borda */
+  }
+
+  a.navbar-brand.navtitle:hover {
+    background-color: #444edb00; /* cor de fundo quando o cursor está sobre o botão */
+    border-color: #565fda00;
+  }
+
+  i.fa-solid.fa-hands-asl-interpreting{
+    font-size: 25px;
+    color: #272525;
+    margin-left: 2px;
+  }
+
+  button.btn.btn-meucor {
+    background-color: rgba(197, 197, 200, 0.736); /* cor de fundo */
+    color: #2e2e2ed6; /* cor do texto */
+  }
+  
+  button.btn.btn-meucor:hover {
+    background-color: rgba(220, 220, 226, 0.736); /* cor de fundo quando o cursor está sobre o botão */
+    color: #FFFFFF; /* cor do texto quando o cursor está sobre o botão */
+  }
+
+  @media only screen and (max-width: 680px) {
+
+    .navbar {
+      background-color: rgba(232, 232, 235, 0.8);
+      border-radius: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-top: 0px;
+    }
+
+    button.btn.btn-outline-secondary.dois{
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+      margin-left: 25px;
+       width: 30%;
+      
+    }
+
+    button.btn.btn-outline-secondary.um {
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+      margin-left: 70px;
+      margin-bottom: 10px;
+       width: 30%;
+    }
+
+    .navbar-collapse {
+    border-top: 1px solid #dee2e6;
+  }
+  
+  }

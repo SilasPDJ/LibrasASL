@@ -1,0 +1,23 @@
+.container {
+    margin-top: 200px;
+}
+
+.icon-users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+i.fa-solid.fa-users {
+    font-size: 50px;
+}
+
+
+@media only screen and (max-width: 680px) {
+    .container {
+        margin-top: 150px;
+    }
+    
+}

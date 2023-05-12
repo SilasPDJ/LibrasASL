@@ -1,0 +1,41 @@
+.pagina{
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    justify-content: flex-start;
+}
+
+.icon-users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+i.fa-solid.fa-users {
+    font-size: 40px;
+}
+
+button.btn {
+    background-color: #3fb618;
+    margin-top: 20px;
+}
+
+button.btn:hover{
+    background-color: #329213;
+}
+
+@media only screen and (max-width: 680px) {
+    .registerImage {
+      display: none;
+    }
+
+    .pagina{
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+    
+  }
+  
