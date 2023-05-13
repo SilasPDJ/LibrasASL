@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+html, body {
+    overflow-x: hidden;
+  }
+
+.jumbotron {
+    margin-top: 30px;
+}
+
+.container.cursos{
+    margin-top: 50px;
+}
+
+a.btn.btn-primary.btn-lg{
+    background-color: #565fda; /* cor de fundo */
+    border-color: #565fda; /* cor da borda */
+    color: #ffffff; /* cor do texto */
+    font-size: 1.1rem; 
+    padding: 0.4rem 0.7rem;
+  }
+
+ a.btn.btn-primary.btn-lg:hover {
+    background-color: #3d48db; /* cor de fundo quando o cursor está sobre o botão */
+    color: #ffffff; /* cor do texto quando o cursor está sobre o botão */
+  }
+
+  h1.title {
+    color: #ffffff;
+    font-family: 'Bree Serif', serif;
+  }
+
+  p.subTitle {
+    color: #ffffff;
+    font-family: 'Bree Serif', serif;
+    font-size: 18px;
+  }
+
+  span.material-symbols-outlined {
+    font-size: 18px;
+  }
+
+  @media only screen and (max-width: 680px) {
+    .cursos .card {
+    margin-bottom: 30px;
+    }
+    }
