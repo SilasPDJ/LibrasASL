@@ -51,8 +51,46 @@ html, body {
     font-size: 40px;
   }
   
-  footer {
+  footer.footer {
     margin-top: 100px;
+    background-color: rgba(219, 219, 219, 0.795);
+
+  }
+
+  .btnFooter {
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .btnFooter:hover {
+    background-color: #cccbcb;
+  }
+
+  .row.itens {
+    margin-top: 10px;
+  }
+
+  .fa-brands.btns {
+    font-size: 1.2rem;
+  }
+
+  .footerA {
+    text-decoration :none;
+  }
+  
+  /* link que foi visitado */
+  a.footerA:visited {
+   color: rgb(0, 0, 0);
+  }
+
+  /* mouse over */
+  a.footerA:hover {
+   color: #3f3f3f;
+  }
+
+  /* link selecionado */
+  a.footerA:active {
+   color: rgb(167, 167, 167);
   }
   
   @media only screen and (max-width: 760px) {
