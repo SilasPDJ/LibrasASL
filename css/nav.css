@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 .navbar {
     background-color: rgba(232, 232, 235, 0.8);
@@ -66,8 +66,9 @@
   }
 
   a.navbar-brand.navtitle {
-    font-family: 'Darumadrop One', cursive;
-    font-size: 30px;
+    /* font-family: 'Darumadrop One', cursive; */
+    font-family: 'Abril Fatface', cursive;
+    font-size: 25px;
     color: #272525;
     border-color: #00000000; /* cor da borda */
   }
@@ -77,10 +78,10 @@
     border-color: #565fda00;
   }
 
-  i.fa-solid.fa-hands-asl-interpreting{
+  i.fa-solid.fa-language{
     font-size: 25px;
     color: #272525;
-    margin-left: 2px;
+    margin-left: 5px;
   }
 
   button.btn.btn-meucor {

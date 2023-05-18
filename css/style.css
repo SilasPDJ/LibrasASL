@@ -35,6 +35,12 @@ html, body {
     margin-right: 100px;
   }
 
+  img.rounded.float-end.libras {
+    max-width: 420px;
+    height: auto;
+    margin-right: 100px;
+  }
+
   .seta{
     display: flex;
     justify-content: center;
@@ -44,7 +50,7 @@ html, body {
   .seta2{
     display: flex;
     justify-content: center;
-    margin-top: 200px;
+    margin-top: 100px;
   }
 
  a.seta-click {
@@ -74,6 +80,18 @@ html, body {
 
   .btnFooter:hover {
     background-color: #cccbcb;
+  }
+
+  .btn.saiba{
+    background-color: #c5c4c4;
+    border-color: #565fda00;
+    color: #333232;
+  }
+
+  .btn.saiba:hover {
+    background-color: #d1d1d1d3;
+    border-color: #565fda00;
+    color: aliceblue;
   }
 
   .row.itens {
@@ -161,7 +179,15 @@ html, body {
     .seta2{
       display: flex;
       justify-content: center;
-      margin-top: 60px;
+      margin-top: 40px;
+    }
+
+    .itensGeral {
+      margin-bottom: 90px;
+    }
+
+    .btn.saiba{
+      width: 100px;
     }
   }
   
