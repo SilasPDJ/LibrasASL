@@ -1,5 +1,5 @@
 <?php
-include '../js/conexao.js'; // Inclua o arquivo de conexão
+include '../js/ajax/conexao.js'; // Inclua o arquivo de conexão
 
 // Aqui você pode receber dados do JavaScript
 $parametro = $_POST['parametro'];

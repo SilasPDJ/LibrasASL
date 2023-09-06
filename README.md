@@ -12,3 +12,5 @@ Site de Libras e ASL, com tradução
 -   Procure por Add a Virtual Host
     -   No 1º input preencha com o nome como por ex: `librasasl`
     -   No 2º input preencha o caminho da pasta raiz do projeto
+
+**Obs:** pasta validators é referente a formulários como cadastro e login

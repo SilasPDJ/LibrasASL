@@ -2,7 +2,8 @@
 const form = document.querySelector("#cadastro-form");
 
 // Configurando o action, ou seja, destino do formulário
-form.action = "/../php/script.php"
+form.action = "/../php/cadastro.php"
+form.method = "POST"
 
 // Selecione os campos do formulário
 const nameInput = document.querySelector("#inputName");
