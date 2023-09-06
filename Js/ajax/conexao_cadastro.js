@@ -1,4 +1,5 @@
 // Exemplo de AJAX com jQuery
+// TODO não sei como vou ligar essa trolha ao PHP ainda, ajuda ae Mikael, sou leigo 
 
 $.ajax({
   url: '../php/cadastro.php',
