@@ -13,6 +13,8 @@ Site de Libras e ASL, com tradução
     -   No 1º input preencha com o nome como por ex: `librasasl`
     -   No 2º input preencha o caminho da pasta raiz do projeto
 
-**Obs:** pasta validators é referente a formulários como cadastro e login
+**Obs:** pasta validators é referente a formulários como cadastro e login.
+
+-   Subpastas semânticas `ajax/`, `validators/` em arquivos `Js`
 
 ### DEVs, por gentileza, verifiquem os TODOs!!
