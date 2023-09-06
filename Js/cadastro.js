@@ -1,6 +1,9 @@
 // Selecione o formulário
 const form = document.querySelector("#cadastro-form");
 
+// Configurando o action, ou seja, destino do formulário
+form.action = "/../php/script.php"
+
 // Selecione os campos do formulário
 const nameInput = document.querySelector("#inputName");
 const surnameInput = document.querySelector("#inputSurname");
@@ -10,8 +13,16 @@ const passwordInput = document.querySelector("#inputPassword");
 const confirmPasswordInput = document.querySelector("#inputConfirmPassword");
 const termosUsoCheckbox = document.querySelector("#termosUso");
 
+nameInput.value = "OlaTest"
+surnameInput.value = "Sobrenome"
+emailInput.value = 'Olaemail@gmail.com'
+userInput.value = "OlaTestUser"
+passwordInput.value = "9021dakslDSKADDLK00"
+confirmPasswordInput.value = passwordInput.value
+termosUsoCheckbox.checked = true
+
 // Adicione um evento de envio ao formulário
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", function (event) {
   // Previna o envio do formulário
   event.preventDefault();
 
