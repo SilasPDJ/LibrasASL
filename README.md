@@ -4,6 +4,7 @@ Site de Libras e ASL, com tradução
 
 ## Passos para rodar o Projeto:
 
+-   Tenha o Wamp server + PHP instalado
 -   Acesse `locahost`
 
 ### Caso for a primeira vez:
