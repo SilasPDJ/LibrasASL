@@ -14,3 +14,5 @@ Site de Libras e ASL, com tradução
     -   No 2º input preencha o caminho da pasta raiz do projeto
 
 **Obs:** pasta validators é referente a formulários como cadastro e login
+
+### DEVs, por gentileza, verifiquem os TODOs!!
