@@ -1,5 +1,5 @@
 <?php
-require_once('create_db.php');
+require_once('conexao.php');
 
 // Receba os dados do JavaScript
 $inputName = $_POST['inputName'];
@@ -16,9 +16,9 @@ $sql_insert = "INSERT INTO usuarios (nome, sobrenome, email, nome_de_usuario, se
 
 // Execute a consulta de inserção
 if ($conexao->query($sql_insert) === TRUE) {
-    echo "Inserção bem-sucedida!";
+    echo "Usuário criado com sucesso.";
 } else {
-    echo "Erro na inserção: " . $conexao->error;
+    echo "Erro: " . $conexao->error;
 }
 
 // Feche a conexão após o uso

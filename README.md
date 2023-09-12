@@ -19,6 +19,8 @@ Site de Libras e ASL, com tradução
 
 **Obs:** pasta validators é referente a formulários como cadastro e login.
 
--   Subpastas semânticas `ajax/`, `validators/` em arquivos `Js`
+-   Subpastas semânticas em arquivos `Js`
+- utilizar `require_once('conexao.php');` para chamar a conexão com banco de dados
+
 
 ### DEVs, por gentileza, verifiquem os TODOs!!
