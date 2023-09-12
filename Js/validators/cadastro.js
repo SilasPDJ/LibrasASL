@@ -14,7 +14,9 @@ const passwordInput = document.querySelector("#inputPassword");
 const confirmPasswordInput = document.querySelector("#inputConfirmPassword");
 const termosUsoCheckbox = document.querySelector("#termosUso");
 
-nameInput.value = "OlaTest"
+// const feedbackErrorDiv = document.querySelector("#feedback-error")
+
+// nameInput.value = "OlaTest"
 surnameInput.value = "Sobrenome"
 emailInput.value = 'Olaemail@gmail.com'
 userInput.value = "OlaTestUser"
@@ -22,40 +24,47 @@ passwordInput.value = "9021dakslDSKADDLK00"
 confirmPasswordInput.value = passwordInput.value
 termosUsoCheckbox.checked = true
 
+jQuery(form).find("input").on("invalid", function (event) {
+  $(this).addClass('is-invalid');
+});
+
+
+jQuery(form).find("input").on("input", function () {
+  if (this.checkValidity()) {
+    $(this).removeClass('is-invalid');
+  }
+});
+// function customValidationNameInput() {
+//   const nameValue = nameInput.value.trim();
+
+//   if (nameValue.length <= 10) {
+//     nameInput.setCustomValidity("O nome deve ter mais de 10 caracteres.");
+//   } else {
+//     nameInput.setCustomValidity(""); // Campo é válido
+//     nameInput.classList.removeClass("is-invalid")
+//   }
+// }
+
+// nameInput.addEventListener("input", customValidationNameInput);
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   let isValid = true;
+  const $inputs = $(this).find("input");
 
-  if (nameInput.value.trim() === "") {
-    isValid = false;
-    // alert("Por favor, preencha o campo Nome.");
-  }
+  // Reduzindo a quantidade de código do trim
+  $inputs.each(function () {
+    const $input = $(this);
+    const trimmedValue = $input.val().trim();
 
-  if (surnameInput.value.trim() === "") {
-    isValid = false;
-    // alert("Por favor, preencha o campo Sobrenome.");
-  }
-
-  if (emailInput.value.trim() === "") {
-    isValid = false;
-    // alert("Por favor, preencha o campo E-mail.");
-  }
-
-  if (userInput.value.trim() === "") {
-    isValid = false;
-    // alert("Por favor, preencha o campo Nome de Usuário.");
-  }
-
-  if (passwordInput.value.trim() === "") {
-    isValid = false;
-    // alert("Por favor, preencha o campo Senha.");
-  }
-
-  if (confirmPasswordInput.value.trim() === "") {
-    isValid = false;
-    // alert("Por favor, preencha o campo Confirmar Senha.");
-  }
+    if (trimmedValue === "") {
+      isValid = false;
+      $input.addClass('is-invalid');
+    } else {
+      $input.removeClass('is-invalid');
+    }
+  });
 
   if (passwordInput.value !== confirmPasswordInput.value) {
     isValid = false;
@@ -87,5 +96,7 @@ form.addEventListener("submit", function (event) {
         alert("Erro ao enviar o formulário via AJAX.");
       },
     });
+  } else {
+    return
   }
 });
