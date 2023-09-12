@@ -24,7 +24,7 @@ if ($inputPassword !== $inputConfirmPassword) {
 
     // Validação para verificar se o e-mail já está em uso
     if (emailJaCadastrado($conexao, $inputEmail)) {
-        $response['message'] = "Este e-mail já está em uso, tente outro.";
+        $response['message'] = "Este e-mail já está em uso.";
     } else {
         // Insira o novo usuário
         if (inserirNovoUsuario($conexao, $inputName, $inputSurname, $inputEmail, $inputUser, $inputPassword, $termosUso)) {
