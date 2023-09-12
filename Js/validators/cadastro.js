@@ -1,11 +1,11 @@
 // Selecione o formulário
 const form = document.querySelector("#cadastro-form");
 
-// Configurando o action, ou seja, destino do formulário
+// Configurando o action, ou seja, destino do formulário (ajax...)
 // form.action = "/../php/cadastro.php"
 form.method = "POST"
 
-// Selecione os campos do formulário
+// Seleciona os campos do formulário
 const nameInput = document.querySelector("#inputName");
 const surnameInput = document.querySelector("#inputSurname");
 const emailInput = document.querySelector("#inputEmail");
@@ -14,39 +14,75 @@ const passwordInput = document.querySelector("#inputPassword");
 const confirmPasswordInput = document.querySelector("#inputConfirmPassword");
 const termosUsoCheckbox = document.querySelector("#termosUso");
 
-// const feedbackErrorDiv = document.querySelector("#feedback-error")
+const feedbackErrorDiv = document.querySelector("#feedback-error")
 
-// nameInput.value = "OlaTest"
-surnameInput.value = "Sobrenome"
-emailInput.value = 'Olaemail@gmail.com'
-userInput.value = "OlaTestUser"
-passwordInput.value = "9021dakslDSKADDLK00"
+nameInput.value = "OlaTest2"
+surnameInput.value = "Sobrenome2"
+emailInput.value = 'Olaemail2@gmail.com'
+userInput.value = "OlaTestUser2"
+passwordInput.value = "9021daksdddddddlDSKADDLK00"
 confirmPasswordInput.value = passwordInput.value
 termosUsoCheckbox.checked = true
 
-jQuery(form).find("input").on("invalid", function (event) {
-  $(this).addClass('is-invalid');
-});
 
+const $inputs = jQuery(form).find("input");
 
-jQuery(form).find("input").on("input", function () {
-  if (this.checkValidity()) {
-    $(this).removeClass('is-invalid');
+// Validando os inputs ao digitar
+$inputs.on("input blur", function () {
+  const $input = $(this);
+  const value = $input.val().trim();
+
+  const isValidEmail = function (email) {
+    const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    return regex.test(email);
+  };
+
+  if ($input.is(":invalid") || (this === emailInput && !isValidEmail(value)) || value === "") {
+    $input.addClass("is-invalid");
+  } else {
+    $input.removeClass("is-invalid");
   }
 });
-// function customValidationNameInput() {
-//   const nameValue = nameInput.value.trim();
 
-//   if (nameValue.length <= 10) {
-//     nameInput.setCustomValidity("O nome deve ter mais de 10 caracteres.");
-//   } else {
-//     nameInput.setCustomValidity(""); // Campo é válido
-//     nameInput.classList.removeClass("is-invalid")
-//   }
-// }
+// Passwords ...
+$(document).on('click', '.toggle-password', function () {
+  $(this).toggleClass("fa-eye fa-eye-slash");
 
-// nameInput.addEventListener("input", customValidationNameInput);
+  let input = $($(this).attr("toggle"));
+  input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password');
+});
+//
+function inputsPasswordSaoIguais(inputSenha, inputConfirmarSenha, matchDiv, otherValidationsDiv) {
+  // O selector dos inputs deve ser em javascript, não jQuery
+  $(inputSenha).add(inputConfirmarSenha).on("input", function () {
+    const senha = $(inputSenha).val();
+    const confirmarSenha = $(inputConfirmarSenha).val();
 
+    // Validando a confirmação de senha
+    if (senha === confirmarSenha) {
+      $(matchDiv).text("").removeClass("text-danger").addClass("text-success");
+    } else {
+      $(matchDiv).text("As senhas não correspondem.").removeClass("text-success").addClass("text-danger");
+    }
+
+    // Validando critérios de senha
+    if (senha.length < 8) {
+      $(otherValidationsDiv).text("Senha deve conter no mínimo 8 caracteres.").removeClass("text-success").addClass("text-danger");
+
+    } else {
+      $(otherValidationsDiv).text("").removeClass("text-danger").addClass("text-success");
+    }
+
+  });
+}
+
+const passwordMatchDiv = $('#passwordMatchMessage')
+const validationDiv = $('#passwordValidationMessage')
+
+inputsPasswordSaoIguais(passwordInput, confirmPasswordInput, passwordMatchDiv, validationDiv)
+
+
+// Após submits & chama ajax
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -62,18 +98,25 @@ form.addEventListener("submit", function (event) {
       isValid = false;
       $input.addClass('is-invalid');
     } else {
+      isValid = true;
       $input.removeClass('is-invalid');
     }
   });
 
-  if (passwordInput.value !== confirmPasswordInput.value) {
-    isValid = false;
-    // alert("As senhas não correspondem.");
+  // Password validations
+  if ($(passwordMatchDiv.text() == "") || $(validationDiv.text() == "")) {
+    isValid = true;
   }
-
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    isValid = true;
+    jQuery(passwordInput).trigger('invalid')
+    jQuery(confirmPasswordInput).trigger('invalid')
+  }
+  //
   if (!termosUsoCheckbox.checked) {
     isValid = false;
-    // alert("Por favor, aceite os Termos de Uso.");
+    jQuery(termosUsoCheckbox).trigger('invalid')
+    // console.log("Por favor, aceite os Termos de Uso.");
   }
 
   if (isValid) {
@@ -91,6 +134,11 @@ form.addEventListener("submit", function (event) {
       },
       success: function (response) {
         console.log(response);
+        if (!response.success) {
+          $(validationDiv).text(response.message).removeClass("text-success").addClass("text-danger");
+        } else {
+          // redirecionar
+        }
       },
       error: function () {
         alert("Erro ao enviar o formulário via AJAX.");

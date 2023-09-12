@@ -25,9 +25,6 @@
                             <i class="fa-solid fa-users"></i>
                         </div>
                         <h4 class="card-title text-center">Cadastro</h4>
-                        <!-- <div id="feedback-error" class="alert alert-danger" role="alert">
-                            This is a danger alert—check it out!
-                        </div> -->
                     </div>
                     <div class="card-body">
                         <form id="cadastro-form">
@@ -58,17 +55,39 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="inputPassword">Senha</label>
-                                    <input type="password" class="form-control" name="inputPassword" id="inputPassword"
-                                        placeholder="Digite sua senha" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputConfirmPassword">Confirme a Senha</label>
-                                    <input type="password" class="form-control" name="inputConfirmPassword"
-                                        id="inputConfirmPassword" placeholder="Confirme sua senha" required>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="inputPassword"
+                                            id="inputPassword" placeholder="Digite sua senha" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-fw fa-eye field_icon toggle-password"
+                                                    toggle="#inputPassword"></i>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputConfirmPassword">Confirme a Senha</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="inputConfirmPassword"
+                                            id="inputConfirmPassword" placeholder="Confirme sua senha" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-fw fa-eye field_icon toggle-password"
+                                                    toggle="#inputConfirmPassword"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div id="passwordMatchMessage"></div>
+                                    <div id="passwordValidationMessage"></div>
+                                </div>
+                            </div>
+
                             <div class="form-check mb-3">
                                 <input type="checkbox" class="form-check-input" name="termosUso" id="termosUso">
                                 <label class="form-check-label" for="termosUso">Eu aceito os <a href="#">Termos de
@@ -76,6 +95,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary col-md-12">Cadastrar</button>
                         </form>
+
                         <div class="text-center mt-3">
                             Já sou cadastrado? <a href="login.html">Faça login aqui</a>
                         </div>
