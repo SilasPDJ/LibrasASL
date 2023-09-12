@@ -1,7 +1,7 @@
 <?php
 $host = "localhost"; // Host do servidor MySQL
 $usuario = "root"; // Nome de usuário do MySQL
-$banco = "teste"; // Nome do banco de dados
+$banco = "LibrasASL"; //
 
 // Conectar ao MySQL
 $conexao = new mysqli($host, $usuario, $senha, $banco);
