@@ -119,7 +119,13 @@ form.addEventListener("submit", function (event) {
       success: function (response) {
         console.log(response);
         if (!response.success) {
-          $(validationDiv).text(response.message).removeClass("text-success").addClass("text-danger");
+          let errorMessage = "";
+          for (let key in response) {
+            if (key !== "success") {
+              errorMessage += response[key] + "<br>";
+            }
+          }
+          $(validationDiv).html(errorMessage).removeClass("text-success").addClass("text-danger");
         } else {
           // redirecionar
         }

@@ -40,11 +40,6 @@ if (!isset($inputConfirmPassword) || empty($inputConfirmPassword)) {
     $response['inputConfirmPassword'] = "Confirmação de senha não pode ser vazia.";
 }
 
-if ($termosUso !== 1) {
-    $response['termosUso'] = "Você deve concordar com os termos de uso.";
-}
-
-
 // --- Validando formulario
 if ($inputPassword !== $inputConfirmPassword) {
     $response['inputConfirmPassword'] = "Verifique a correspondência das senhas.";
@@ -56,7 +51,11 @@ if (strlen($inputPassword) < 8) {
 
 // Validação para verificar se o e-mail já está em uso
 if (emailJaCadastrado($conexao, $inputEmail)) {
-    $response['inputEmail'] = "Este e-mail já está em uso.";
+    $response['inputEmail'] = "E-mail informado já está em uso.";
+}
+
+if ($termosUso !== 1) {
+    $response['termosUso'] = "Você deve concordar com os termos de uso.";
 }
 
 // Insira o novo usuário
