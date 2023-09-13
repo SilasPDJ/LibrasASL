@@ -26,10 +26,23 @@ const feedbackErrorDiv = document.querySelector("#feedback-error")
 // termosUsoCheckbox.checked = true
 // 
 
+// settando alguns atributos dos inputs PATTERNS
+
+function setMinLengthPatternAndTitle(inputElement, minLength) {
+  // Função auxiliar que configura o mínimo de caracteres permitido no input
+  if (inputElement) {
+    inputElement.setAttribute('pattern', '.{' + minLength + ',}');
+    inputElement.setAttribute('title', 'Deve conter pelo menos ' + minLength + ' caracteres');
+  }
+}
+setMinLengthPatternAndTitle(nameInput, 3);
+setMinLengthPatternAndTitle(surnameInput, 3);
+setMinLengthPatternAndTitle(userInput, 5);
+
 const $inputs = jQuery(form).find("input");
 
 // Validando os inputs ao digitar
-$inputs.on("input change blur", function () {
+$inputs.on("input change blur", function (event) {
   const $input = $(this);
   const value = $input.val().trim();
 
@@ -39,7 +52,10 @@ $inputs.on("input change blur", function () {
   };
 
   if ($input.is(":invalid") || (this === emailInput && !isValidEmail(value)) || value === "") {
-    $input.addClass("is-invalid");
+    if (event.type === "blur") {
+      $input.addClass("is-invalid");
+
+    }
   } else {
     $input.removeClass("is-invalid");
   }
