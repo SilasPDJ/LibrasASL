@@ -82,7 +82,7 @@ function ValidatePasswords(inputSenha, inputConfirmarSenha, matchDiv, otherValid
     let feedbackArray = []
 
     $(matchDiv).removeClass("text-success").addClass("text-danger")
-    if (senha.length < 8 || confirmarSenha.length < 8) {
+    if (senha.length < 8 && confirmarSenha.length < 8) {
       feedbackArray.push("Senha deve conter no mínimo 8 caracteres.");
     }
     // Validando a confirmação de senha
