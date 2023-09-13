@@ -136,7 +136,7 @@ form.addEventListener("submit", function (event) {
         inputConfirmPassword: confirmPasswordInput.value,
         termosUso: termosUsoCheckbox.checked,
       },
-      success: function (response) {
+      done: function (response) {
         console.log(response);
         if (!response.success) {
           $(validationDiv).text(response.message).removeClass("text-success").addClass("text-danger");
@@ -144,7 +144,7 @@ form.addEventListener("submit", function (event) {
           // redirecionar
         }
       },
-      error: function () {
+      fail: function () {
         alert("Erro ao enviar o formulário via AJAX.");
       },
     });
