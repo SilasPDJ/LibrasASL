@@ -14,27 +14,61 @@ $inputConfirmPassword = $_POST['inputConfirmPassword'];
 $termosUso = $_POST['termosUso']  === 'true' ? 1 : 0;
 
 $response['success'] = false;
-// Validação EXTRA das senhas (se o espertinho desativar o javascript)
-if ($inputPassword !== $inputConfirmPassword) {
-    $response['message'] = "Verifique a correspondência das senhas.";
-} else if (strlen($inputPassword) < 8) {
-    $response['message'] = "Senha deve conter no mínimo 8 caracteres.";
-    // TODO: outras verificações de password vamos fazer somente no frontend(?)
-} else {
 
-    // Validação para verificar se o e-mail já está em uso
-    if (emailJaCadastrado($conexao, $inputEmail)) {
-        $response['message'] = "Este e-mail já está em uso.";
+// --- Verifica se as variáveis estão definidas e não vazias
+if (!isset($inputName) || empty($inputName)) {
+    $response['inputName'] = "Nome não pode ser vazio.";
+}
+
+if (!isset($inputSurname) || empty($inputSurname)) {
+    $response['inputSurname'] = "Sobrenome não pode ser vazio.";
+}
+
+if (!isset($inputEmail) || empty($inputEmail)) {
+    $response['inputEmail'] = "Email não pode ser vazio.";
+}
+
+if (!isset($inputUser) || empty($inputUser)) {
+    $response['inputUser'] = "Nome de usuário não pode ser vazio.";
+}
+
+if (!isset($inputPassword) || empty($inputPassword)) {
+    $response['inputPassword'] = "Senha não pode ser vazia.";
+}
+
+if (!isset($inputConfirmPassword) || empty($inputConfirmPassword)) {
+    $response['inputConfirmPassword'] = "Confirmação de senha não pode ser vazia.";
+}
+
+if ($termosUso !== 1) {
+    $response['termosUso'] = "Você deve concordar com os termos de uso.";
+}
+
+
+// --- Validando formulario
+if ($inputPassword !== $inputConfirmPassword) {
+    $response['inputConfirmPassword'] = "Verifique a correspondência das senhas.";
+}
+
+if (strlen($inputPassword) < 8) {
+    $response['inputPassword'] = "Senha deve conter no mínimo 8 caracteres.";
+}
+
+// Validação para verificar se o e-mail já está em uso
+if (emailJaCadastrado($conexao, $inputEmail)) {
+    $response['inputEmail'] = "Este e-mail já está em uso.";
+}
+
+// Insira o novo usuário
+if (empty($response)) {
+    if (inserirNovoUsuario($conexao, $inputName, $inputSurname, $inputEmail, $inputUser, $inputPassword, $termosUso)) {
+        $response['success'] = true;
+        $response['message'] = "Usuário criado com sucesso.";
     } else {
-        // Insira o novo usuário
-        if (inserirNovoUsuario($conexao, $inputName, $inputSurname, $inputEmail, $inputUser, $inputPassword, $termosUso)) {
-            $response['success'] = true;
-            $response['message'] = "Usuário criado com sucesso.";
-        } else {
-            $response['message'] = "Erro ao inserir usuário.";
-        }
+        $response['inputUser'] = "Erro ao inserir usuário.";
     }
 }
+
 
 // Verificar se o email ja foi cadastrado
 function emailJaCadastrado($conexao, $email)

@@ -67,7 +67,7 @@ function inputsPasswordSaoIguais(inputSenha, inputConfirmarSenha, matchDiv, othe
     }
 
     // Validando critérios de senha
-    if (senha.length < 8) {
+    if (senha.length < 8 || confirmarSenha.length < 8) {
       $(otherValidationsDiv).text("Senha deve conter no mínimo 8 caracteres.").removeClass("text-success").addClass("text-danger");
 
     } else {
@@ -101,27 +101,7 @@ form.addEventListener("submit", function (event) {
 
   });
 
-  // Password validations
-  if (passwordMatchDiv.text().trim() !== "" && validationDiv.text().trim() !== "") {
-    isValid = false;
-  }
-  // ---> Redundante
-  if (passwordInput.value !== confirmPasswordInput.value) {
-    isValid = false;
-    jQuery(passwordInput).trigger('invalid')
-    jQuery(confirmPasswordInput).trigger('invalid')
-  }
-  //
-  //
-  if (!termosUsoCheckbox.checked) {
-    isValid = false;
-    jQuery(termosUsoCheckbox).trigger('invalid')
-    $(validationDiv).text("Por favor, confira os termos de uso.").removeClass("text-success").addClass("text-danger");
-
-    // console.log("Por favor, aceite os Termos de Uso.");
-  } else {
-    $(validationDiv).text("").addClass("text-success")
-  }
+  // Validação direto do php...
   console.log(isValid)
   if (isValid) {
     $.ajax({
@@ -136,7 +116,7 @@ form.addEventListener("submit", function (event) {
         inputConfirmPassword: confirmPasswordInput.value,
         termosUso: termosUsoCheckbox.checked,
       },
-      done: function (response) {
+      success: function (response) {
         console.log(response);
         if (!response.success) {
           $(validationDiv).text(response.message).removeClass("text-success").addClass("text-danger");
@@ -144,7 +124,7 @@ form.addEventListener("submit", function (event) {
           // redirecionar
         }
       },
-      fail: function () {
+      error: function () {
         alert("Erro ao enviar o formulário via AJAX.");
       },
     });
