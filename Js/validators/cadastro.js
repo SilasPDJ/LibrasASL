@@ -102,7 +102,7 @@ form.addEventListener("submit", function (event) {
   });
 
   // Password validations
-  if ($(passwordMatchDiv.text() == "") || $(validationDiv.text() == "")) {
+  if (passwordMatchDiv.text().trim() !== "" && validationDiv.text().trim() !== "") {
     isValid = false;
   }
   // ---> Redundante
@@ -116,9 +116,13 @@ form.addEventListener("submit", function (event) {
   if (!termosUsoCheckbox.checked) {
     isValid = false;
     jQuery(termosUsoCheckbox).trigger('invalid')
-    // console.log("Por favor, aceite os Termos de Uso.");
-  }
+    $(validationDiv).text("Por favor, confira os termos de uso.").removeClass("text-success").addClass("text-danger");
 
+    // console.log("Por favor, aceite os Termos de Uso.");
+  } else {
+    $(validationDiv).text("").addClass("text-success")
+  }
+  console.log(isValid)
   if (isValid) {
     $.ajax({
       type: "POST",

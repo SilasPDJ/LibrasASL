@@ -41,6 +41,10 @@ form.addEventListener('submit', function (event) {
     $input.toggleClass('is-invalid', !isValid);
   });
 
+  if (validationDiv.text().trim() !== "") {
+    isValid = false;
+  }
+
   if (isValid) {
     $.ajax({
       type: "POST",
