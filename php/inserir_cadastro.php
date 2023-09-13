@@ -13,7 +13,6 @@ $inputPassword = $_POST['inputPassword'];
 $inputConfirmPassword = $_POST['inputConfirmPassword'];
 $termosUso = $_POST['termosUso']  === 'true' ? 1 : 0;
 
-$response['success'] = false;
 
 // --- Verifica se as variáveis estão definidas e não vazias
 if (!isset($inputName) || empty($inputName)) {
@@ -66,6 +65,8 @@ if (empty($response)) {
     } else {
         $response['inputUser'] = "Erro ao inserir usuário.";
     }
+} else {
+    $response['success'] = false;
 }
 
 
