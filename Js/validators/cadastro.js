@@ -16,14 +16,15 @@ const termosUsoCheckbox = document.querySelector("#termosUso");
 
 const feedbackErrorDiv = document.querySelector("#feedback-error")
 
-nameInput.value = "OlaTest2"
-surnameInput.value = "Sobrenome2"
-emailInput.value = 'Olaemail2@gmail.com'
-userInput.value = "OlaTestUser2"
-passwordInput.value = "9021daksdddddddlDSKADDLK00"
-confirmPasswordInput.value = passwordInput.value
-termosUsoCheckbox.checked = true
-
+// --- Para testes
+// nameInput.value = "OlaTest2"
+// surnameInput.value = "Sobrenome2"
+// emailInput.value = 'Olaemail2@gmail.com'
+// userInput.value = "OlaTestUser2"
+// passwordInput.value = "9021daksdddddddlDSKADDLK00"
+// confirmPasswordInput.value = passwordInput.value
+// termosUsoCheckbox.checked = true
+// 
 
 const $inputs = jQuery(form).find("input");
 
@@ -77,7 +78,7 @@ function inputsPasswordSaoIguais(inputSenha, inputConfirmarSenha, matchDiv, othe
 }
 
 const passwordMatchDiv = $('#passwordMatchMessage')
-const validationDiv = $('#passwordValidationMessage')
+const validationDiv = $('#validationMessage')
 
 inputsPasswordSaoIguais(passwordInput, confirmPasswordInput, passwordMatchDiv, validationDiv)
 
@@ -86,32 +87,31 @@ inputsPasswordSaoIguais(passwordInput, confirmPasswordInput, passwordMatchDiv, v
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  let isValid = true;
   const $inputs = $(this).find("input");
 
-  // Reduzindo a quantidade de código do trim
+  let isValid = true;
+
   $inputs.each(function () {
     const $input = $(this);
-    const trimmedValue = $input.val().trim();
 
-    if (trimmedValue === "") {
-      isValid = false;
-      $input.addClass('is-invalid');
-    } else {
-      isValid = true;
-      $input.removeClass('is-invalid');
-    }
+    // Valida se o valor está vazio...
+    const trimmedValue = $input.val().trim();
+    isValid = trimmedValue !== "";
+    $input.toggleClass('is-invalid', !isValid);
+
   });
 
   // Password validations
   if ($(passwordMatchDiv.text() == "") || $(validationDiv.text() == "")) {
-    isValid = true;
+    isValid = false;
   }
+  // ---> Redundante
   if (passwordInput.value !== confirmPasswordInput.value) {
-    isValid = true;
+    isValid = false;
     jQuery(passwordInput).trigger('invalid')
     jQuery(confirmPasswordInput).trigger('invalid')
   }
+  //
   //
   if (!termosUsoCheckbox.checked) {
     isValid = false;
