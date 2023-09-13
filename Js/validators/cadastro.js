@@ -29,7 +29,7 @@ const feedbackErrorDiv = document.querySelector("#feedback-error")
 const $inputs = jQuery(form).find("input");
 
 // Validando os inputs ao digitar
-$inputs.on("input blur", function () {
+$inputs.on("input change blur", function () {
   const $input = $(this);
   const value = $input.val().trim();
 
