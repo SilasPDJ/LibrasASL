@@ -53,26 +53,35 @@ $(document).on('click', '.toggle-password', function () {
   input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password');
 });
 //
-function inputsPasswordSaoIguais(inputSenha, inputConfirmarSenha, matchDiv, otherValidationsDiv) {
+function ValidatePasswords(inputSenha, inputConfirmarSenha, matchDiv, otherValidationsDiv) {
   // O selector dos inputs deve ser em javascript, não jQuery
   $(inputSenha).add(inputConfirmarSenha).on("input", function () {
     const senha = $(inputSenha).val();
     const confirmarSenha = $(inputConfirmarSenha).val();
-
-    // Validando a confirmação de senha
-    if (senha === confirmarSenha) {
-      $(matchDiv).text("").removeClass("text-danger").addClass("text-success");
-    } else {
-      $(matchDiv).text("As senhas não correspondem.").removeClass("text-success").addClass("text-danger");
-    }
+    const NUMBER_REGEX = /([0-9])/;
+    const ALPHABETS_REGEX = /([a-z].*[A-Z]|[A-Z].*[a-z])/;
+    const SPECIAL_CHARACTERS = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
 
     // Validando critérios de senha
-    if (senha.length < 8 || confirmarSenha.length < 8) {
-      $(otherValidationsDiv).text("Senha deve conter no mínimo 8 caracteres.").removeClass("text-success").addClass("text-danger");
+    let feedbackArray = []
 
-    } else {
-      $(otherValidationsDiv).text("").removeClass("text-danger").addClass("text-success");
+    $(matchDiv).removeClass("text-success").addClass("text-danger")
+    if (senha.length < 8 || confirmarSenha.length < 8) {
+      feedbackArray.push("Senha deve conter no mínimo 8 caracteres.");
     }
+    // Validando a confirmação de senha
+    if (senha !== confirmarSenha && confirmarSenha) {
+      feedbackArray.push("As senhas não correspondem.");
+    }
+
+    // Configurando o texto do feedbackText
+    let feedbackText = ''
+    for (let feedback of feedbackArray) {
+      feedbackText += `${feedback}<br/>`
+    }
+    feedbackText += "<br/>"
+
+    $(matchDiv).html(feedbackText)
 
   });
 }
@@ -80,7 +89,7 @@ function inputsPasswordSaoIguais(inputSenha, inputConfirmarSenha, matchDiv, othe
 const passwordMatchDiv = $('#passwordMatchMessage')
 const validationDiv = $('#validationMessage')
 
-inputsPasswordSaoIguais(passwordInput, confirmPasswordInput, passwordMatchDiv, validationDiv)
+ValidatePasswords(passwordInput, confirmPasswordInput, passwordMatchDiv)
 
 
 // Após submits & chama ajax
@@ -122,7 +131,7 @@ form.addEventListener("submit", function (event) {
           let errorMessage = "";
           for (let key in response) {
             if (key !== "success") {
-              errorMessage += response[key] + "<br>";
+              errorMessage += response[key] + "<br/>";
             }
           }
           $(validationDiv).html(errorMessage).removeClass("text-success").addClass("text-danger");

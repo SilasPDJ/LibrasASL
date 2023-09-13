@@ -17,27 +17,27 @@ $response['success'] = false;
 
 // --- Verifica se as variáveis estão definidas e não vazias
 if (!isset($inputName) || empty($inputName)) {
-    $response['inputName'] = "Nome não pode ser vazio.";
+    $response['inputName'] = "Preencha o campo nome.";
 }
 
 if (!isset($inputSurname) || empty($inputSurname)) {
-    $response['inputSurname'] = "Sobrenome não pode ser vazio.";
+    $response['inputSurname'] = "Preencha o campo sobrenome.";
 }
 
 if (!isset($inputEmail) || empty($inputEmail)) {
-    $response['inputEmail'] = "Email não pode ser vazio.";
+    $response['inputEmail'] = "Preencha o campo email.";
 }
 
 if (!isset($inputUser) || empty($inputUser)) {
-    $response['inputUser'] = "Nome de usuário não pode ser vazio.";
+    $response['inputUser'] = "Preencha o campo nome de usuário.";
 }
 
 if (!isset($inputPassword) || empty($inputPassword)) {
-    $response['inputPassword'] = "Senha não pode ser vazia.";
+    $response['inputPassword'] = "Preencha o campo senha.";
 }
 
 if (!isset($inputConfirmPassword) || empty($inputConfirmPassword)) {
-    $response['inputConfirmPassword'] = "Confirmação de senha não pode ser vazia.";
+    $response['inputConfirmPassword'] = "Preencha o campo confirmação de senha.";
 }
 
 // --- Validando formulario
