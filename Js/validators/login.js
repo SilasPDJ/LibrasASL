@@ -8,8 +8,8 @@ const validationDiv = $('#validationMessage')
 
 
 // Valores testes...
-emailInputJs.value = 'Olaemail2@gmail.com'
-passwordInputJs.value = '9021daksdddddddlDSKADDLK00'
+// emailInputJs.value = 'Olaemail2@gmail.com'
+// passwordInputJs.value = '9021daksdddddddlDSKADDLK00'
 //
 const $inputs = jQuery(form).find("input");
 

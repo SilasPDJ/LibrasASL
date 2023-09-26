@@ -61,13 +61,7 @@ $inputs.on("input change blur", function (event) {
   }
 });
 
-// Passwords ...
-$(document).on('click', '.toggle-password', function () {
-  $(this).toggleClass("fa-eye fa-eye-slash");
 
-  let input = $($(this).attr("toggle"));
-  input.attr('type') === 'password' ? input.attr('type', 'text') : input.attr('type', 'password');
-});
 //
 function ValidatePasswords(inputSenha, inputConfirmarSenha, matchDiv, otherValidationsDiv) {
   // O selector dos inputs deve ser em javascript, não jQuery
