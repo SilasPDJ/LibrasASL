@@ -6,10 +6,10 @@ if ($_SERVER['REMOTE_ADDR'] == "::1") {
     $senha = ""; // Lembre-se de configurar a senha se ela for necessária
     $banco = "LibrasASL";
 } else {
-    $host = "sql108.infinityfree.com";
-    $usuario = "if0_35108817";
-    $senha = "u3IZrkabKJ";
-    $banco = "if0_35108817_LibrasASL";
+    $host = "localhost";
+    $usuario = "id21315197_admin";
+    $senha = "f,.dmdLSA.,cvxmsdr9e8u#t5695640%$";
+    $banco = "id21315197_librasasl";
 }
 // Conectar ao MySQL
 $conexao = new mysqli($host, $usuario, $senha);
