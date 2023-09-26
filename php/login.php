@@ -34,14 +34,14 @@ function buscaEmailUnico($conexao, $email)
     }
     return -1; // false
 }
-
 function senhaEstaValida($conexao, $id, $senha)
 {
     $sql = "SELECT senha FROM usuarios WHERE id = $id";
     $result = $conexao->query($sql);
     if ($result && $row = $result->fetch_assoc()) {
         // return password_verify($senha, $row['senha']);
-        return $senha == $row['senha'];
+        $hash =  $row['senha'];
+        return password_verify($senha, $hash);
     }
     return false;
 }

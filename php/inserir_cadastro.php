@@ -84,8 +84,11 @@ function emailJaCadastrado($conexao, $email)
 // Função para inserir o novo usuário
 function inserirNovoUsuario($conexao, $nome, $sobrenome, $email, $nomeDeUsuario, $senha, $termosAceitos)
 {
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
+
     $sql = "INSERT INTO usuarios (nome, sobrenome, email, nome_de_usuario, senha, termos_aceitos)
-            VALUES ('$nome', '$sobrenome', '$email', '$nomeDeUsuario', '$senha', '$termosAceitos')";
+            VALUES ('$nome', '$sobrenome', '$email', '$nomeDeUsuario', '$senhaHash', '$termosAceitos')";
     return $conexao->query($sql);
 }
 
