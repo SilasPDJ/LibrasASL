@@ -20,7 +20,11 @@ Site de Libras e ASL, com tradução
 **Obs:** pasta validators é referente a formulários como cadastro e login.
 
 -   Subpastas semânticas em arquivos `Js`
-- utilizar `require_once('conexao.php');` para chamar a conexão com banco de dados
-
+-   utilizar `require_once('conexao.php');` para chamar a conexão com banco de dados
 
 ### DEVs, por gentileza, verifiquem os TODOs!!
+
+#### Hospedagem free
+
+https://cpanel.infinityfree.com/panel/indexpl.php
+https://panel.000webhost.com/onboarding

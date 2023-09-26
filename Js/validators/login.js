@@ -60,6 +60,7 @@ form.addEventListener('submit', function (event) {
         } else {
           // redirecionar
           console.log('redirecionar')
+          window.open('http://librasaslvirtual/html/traducao.html')
         }
       },
       error: function () {

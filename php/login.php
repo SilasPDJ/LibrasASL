@@ -19,10 +19,10 @@ if ($emailId !== -1) {
         $response['success'] = true;
         $response['message'] = "Login bem-sucedido";
     } else {
-        $response['message'] = "Senha incorreta";
+        $response['message'] = "E-mail ou Senha incorretos.";
     }
 } else {
-    $response['message'] = "Email não cadastrado.";
+    $response['message'] = "E-mail ou Senha incorretos.";
 }
 
 function buscaEmailUnico($conexao, $email)

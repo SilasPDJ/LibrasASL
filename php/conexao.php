@@ -1,9 +1,16 @@
 <?php
-$host = "localhost";
-$usuario = "root";
-$senha = ""; // Lembre-se de configurar a senha se ela for necessária
-$banco = "LibrasASL";
 
+if ($_SERVER['REMOTE_ADDR'] == "::1") {
+    $host = "localhost";
+    $usuario = "root";
+    $senha = ""; // Lembre-se de configurar a senha se ela for necessária
+    $banco = "LibrasASL";
+} else {
+    $host = "sql108.infinityfree.com";
+    $usuario = "if0_35108817";
+    $senha = "u3IZrkabKJ";
+    $banco = "if0_35108817_LibrasASL";
+}
 // Conectar ao MySQL
 $conexao = new mysqli($host, $usuario, $senha);
 
