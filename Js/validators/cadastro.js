@@ -121,7 +121,7 @@ form.addEventListener("submit", function (event) {
   });
 
   // Validação direto do php...
-  console.log(isValid)
+  
   if (isValid) {
     $.ajax({
       type: "POST",
@@ -136,7 +136,7 @@ form.addEventListener("submit", function (event) {
         termosUso: termosUsoCheckbox.checked,
       },
       success: function (response) {
-        console.log(response);
+        
         if (!response.success) {
           let errorMessage = "";
           for (let key in response) {

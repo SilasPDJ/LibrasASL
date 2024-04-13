@@ -17,7 +17,7 @@
 .titleTraduza {
     display: flex;
     justify-content: center;
-   
+
 }
 
 .h2traduza {
@@ -29,25 +29,52 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
+
 
 .videos {
     display: flex;
     flex-direction: row;
+    /* Empilhe os elementos verticalmente */
     justify-content: center;
     align-items: center;
-    gap: 80px;
-    margin-top: 50px;
+    gap: 10px;
+    /* Ajuste conforme necessário para o espaçamento vertical entre os elementos */
+    margin-top: 30px;
 }
+
+
+.videos iframe {
+    margin-top: 10px;
+    /* Adiciona uma margem entre o h3 e o iframe */
+}
+
+.translation-special-options h3 {
+    margin: 0 5em;
+}
+
+.translation-dica {
+    text-align: center;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.translation-dica a {
+    display: block;
+    text-decoration: none;
+
+}
+
 
 /* select options */
 .translatedText {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    height: 120px;
+    height: 175px;
     padding: 6px 12px;
+    padding-top: 0;
     width: 300px;
     margin: 0 2px;
 }
@@ -64,7 +91,7 @@
     display: none;
 }
 
-.resposta{
+.resposta {
     margin-top: 20px;
 }
 
@@ -81,7 +108,7 @@
         margin-top: 40px;
     }
 
-    .h2traduza{
+    .h2traduza {
         margin-left: 15px;
         margin-right: 15px;
         margin-bottom: 25px;
@@ -91,12 +118,21 @@
         margin-top: 80px;
     }
 
-    .textInsert{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      
+    .textInsert {
+        /* display: flex; */
+        flex-direction: column;
+        align-items: center;
+
     }
+
+    .textInsert select {
+        height: 200px;
+    }
+
+    .translation-special-options {
+        display: none;
+    }
+
 
     .translatedText {
         border: 1px solid #ccc;
@@ -108,7 +144,7 @@
         margin: 0 2px;
     }
 
-    .translatedText.topo{
+    .translatedText.topo {
         margin-bottom: 20px;
     }
 
@@ -118,9 +154,8 @@
         justify-content: center;
     }
 
-    .primeiroConteudo{
+    .primeiroConteudo {
         margin-bottom: 40px;
     }
 
 }
-
